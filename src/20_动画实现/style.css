@@ -1,0 +1,25 @@
+/* 初始状态（进入前/退出后） */
+.xyz-enter,
+.xyz-exit-done {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+/* 过渡过程 */
+.xyz-enter-active,
+.xyz-exit-active {
+  transition: all 2000ms ease;
+  /* 时长要和 timeout 一致 */
+}
+
+/* 进入完成状态 */
+.xyz-enter-done {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 退出过程的初始状态 */
+.xyz-exit {
+  opacity: 1;
+  transform: translateX(0);
+}

@@ -1,4 +1,4 @@
-import React, { PureComponent, createRef } from 'react'
+import React, { PureComponent } from 'react'
 
 export class App extends PureComponent {
   constructor() {
@@ -12,10 +12,8 @@ export class App extends PureComponent {
         { value: 'b', text: 'b', isChecked: true },
         { value: 'c', text: 'c', isChecked: true }
       ],
-      fruit: ["apple"],
-      intro: 'hhhhh'
+      fruit: ["apple"]
     }
-    this.Ref = createRef()
   }
   handleSumbit(e) {
     // 1.阻止默认行为
@@ -25,15 +23,12 @@ export class App extends PureComponent {
     console.log(this.state.username);
     console.log(this.state.pwd);
     console.log(this.state.hobbies.filter(item => item.isChecked).map(item => item.value));
-    console.log(this.Ref.current.value);
-    
     
     // 3.网络请求发数据
 
   }
   change(e) {
     const keyName = e.target.name
-    // []动态变量
     this.setState({[keyName]: e.target.value})
   }
   changeA(e) {
@@ -59,11 +54,8 @@ export class App extends PureComponent {
     
     const values2 = Array.from(e.target.selectedOptions, item => item.value)
   }
-  componetDidMount() {
-    // addEventListener
-  }
   render() {
-    const {username, pwd, isAgree, hobbies, fruit, intro} = this.state
+    const {username, pwd, isAgree, hobbies, fruit} = this.state
     return (
       <div>
         <form onSubmit={e => this.handleSumbit(e)}>
@@ -100,9 +92,6 @@ export class App extends PureComponent {
             <option value="apple">apple</option>
             <option value="orange">orange</option>
           </select>
-          
-          {/* 非受控组件 */}
-          <input type="text" defaultValue={intro} ref={this.Ref} />
           
           <button type="submit">Submit</button>
         </form>
